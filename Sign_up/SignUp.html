@@ -3,23 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Sign_up/SignUp.css">
-    <title>Sign Up Form</title>
+    <title>Student Management System - Sign Up</title>
+    <style>
+        /* Responsive Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f9d423, #e65c00);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Form Container */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            nav {
+                justify-content: center;
+            }
+
+            .nav-links a {
+                margin: 0 5px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="sign-up-form">
-        <h3>Sign Up Now</h3>
-        <form action="action.php">
-         <label for="Email"><input type="email" class="inputBox" placeholder="Enter your email"></label>
-         <br>
-         <lable for="password"><input type="password" class="inputBox" placeholder="Enter your password"></lable>
-         <p><span><input type="checkbox" class="inputCheckbox"></span> I agree  to theterms of services.</p>
-         <button type="button" class="inputBtn">Sign up</button>
-         <hr>
-         <p class="or">OR</p>
-         <button type="button" class="inputBtn">Login with google</button>
-         <p> Do you have an account?<a href="#">Sign in</a></p>
-        </form>
-    </div>
+    <nav>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Login</a>
+            <a href="#">About</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="form-container">
+            <h1>Sign Up</h1>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentId">Student ID</label>
+                    <input type="text" id="studentId" name="studentId" required>
+                </div>
+                <div class="form-group">
+                    <label for="course">Course</label>
+                    <select id="course" name="course" required>
+                        <option value="">Select a course</option>
+                        <option value="computer-science">Computer Science</option>
+                        <option value="business">Business</option>
+                        <option value="engineering">Engineering</option>
+                    </select>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Get the form element
+        const signupForm = document.getElementById('signup-form');
+
+        // Add an event listener to the form
+        signupForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get the form values
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const studentId = document.getElementById('studentId').value;
+            const course = document.getElementById('course').value;
+
+            // Validate the form
+            let isValid = true;
+
+            // Check if the password and confirm password match
+            if (password !== confirmPassword) {
+                isValid = false;
+                alert('Password and Confirm Password do not match.');
+            }
+
+            // Check if all required fields are filled
+            if (!fullName || !email || !password || !confirmPassword || !studentId || !course) {
+                isValid = false;
+                alert('Please fill in all required fields.');
+            }
+
+            // If the form is valid, you can submit it to the server or perform any other actions
+            if (isValid) {
+                // You can send the form data to the server using AJAX or perform any other actions
+                console.log('Form submitted successfully!');
+                console.log('Full Name:', fullName);
+                console.log('Email:', email);
+                console.log('Password:', password);
+                console.log('Student ID:', studentId);
+                console.log('Course:', course);
+            }
+        });
+    </script>
 </body>
 </html>
