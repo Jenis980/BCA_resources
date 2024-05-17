@@ -1,7 +1,92 @@
-body{
+/* Responsive Styles */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    padding:0;
-    font-family: sans-serif;
-    background-position: center;
-    background-image: url(https://www.google.com.np/url?sa=i&url=https%3A%2F%2Fwww.americanoceans.org%2Ffacts%2Fwhats-at-the-bottom-of-the-ocean%2F&psig=AOvVaw2WqDYq-hwPmdci-Iphh6IX&ust=1704095296332000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPi2_u-XuYMDFQAAAAAdAAAAABAD);
+    padding: 0;
+    background: linear-gradient(to bottom, #f9d423, #e65c00);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* Form Container */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    nav {
+        justify-content: center;
+    }
+
+    .nav-links a {
+        margin: 0 5px;
+    }
 }
